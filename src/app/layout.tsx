@@ -13,7 +13,7 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL('https://quack-app.dev'),
   title: 'Quack - Visual GUI for AI Coding with Claude Code | Work on Multiple Projects Simultaneously',
-  description: 'Work on 3+ Claude Code projects simultaneously with Quack - the only visual desktop GUI for parallel AI development. Visual terminals, Git integration, smart notifications. Join 1000+ developers. Free & open-source.',
+  description: 'Work on 10+ Claude Code projects simultaneously with Quack - the only visual desktop GUI for parallel AI development. Visual terminals, Git integration, smart notifications. Join 1000+ developers. Free & open-source.',
   keywords: 'claude code GUI, visual ai coding, claude code desktop app, multiple claude sessions, parallel ai development, ai coding productivity, claude agent sdk interface, multi-project workspace, claude code tool',
   authors: [{ name: 'Alek Dobrohotov', url: 'https://alekdob.com' }],
   creator: 'Alek Dobrohotov',
@@ -88,7 +88,7 @@ export default function RootLayout({
     },
     "softwareRequirements": "macOS 12.0 or later",
     "featureList": [
-      "Multi-Project Workspace - Run 3+ Claude Code sessions in parallel",
+      "Multi-Project Workspace - Run 10+ Claude Code sessions in parallel",
       "Visual Git Integration - Side-by-side diff viewer and commit UI",
       "Smart Terminal Management - BUSY/READY status indicators",
       "Real-time AI Assistant - Built on Claude Agent SDK",

@@ -123,13 +123,13 @@ export default function Home() {
 
           <p className="text-xl text-muted-foreground mb-16 font-mono max-w-3xl">
             Quack lets you run multiple Claude Code sessions simultaneously.
-            Work on 3+ projects at once. Never wait idle. Get notified when tasks complete.
+            Work on 10+ projects at once. Never wait idle. Get notified when tasks complete.
           </p>
 
           <div className="grid md:grid-cols-2 gap-8">
             <div className="bg-card border border-green-500/20 p-8 font-mono">
               <div className="text-4xl mb-4">✅</div>
-              <h3 className="text-2xl font-bold mb-4">Run 3+ Claude Sessions</h3>
+              <h3 className="text-2xl font-bold mb-4">Run 10+ Claude Sessions</h3>
               <p className="text-muted-foreground">
                 Multiple projects, multiple terminals, multiple AI assistants. All running in parallel.
                 Quack manages them all in one beautiful desktop app.
@@ -229,7 +229,7 @@ export default function Home() {
               <ul className="space-y-2 text-sm font-mono">
                 <li className="flex items-start gap-2">
                   <span className="text-green-500">✓</span>
-                  <span>3+ simultaneous projects</span>
+                  <span>10+ simultaneous projects</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-green-500">✓</span>
@@ -358,6 +358,54 @@ export default function Home() {
                 <li className="flex items-start gap-2">
                   <span className="text-green-500">✓</span>
                   <span>Custom notifications control</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Feature 7: Telegram Notifications */}
+            <div className="bg-card border border-border p-8">
+              <div className="text-5xl mb-4">📱</div>
+              <h3 className="text-2xl font-bold mb-4 font-mono">Telegram Notifications</h3>
+              <p className="text-muted-foreground mb-6">
+                Get notified on your mobile when Claude finishes tasks. Stay in the loop
+                even when you're away from your Mac. Never miss a completed session.
+              </p>
+              <ul className="space-y-2 text-sm font-mono">
+                <li className="flex items-start gap-2">
+                  <span className="text-green-500">✓</span>
+                  <span>Real-time mobile notifications</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-green-500">✓</span>
+                  <span>Task completion alerts</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-green-500">✓</span>
+                  <span>Status updates on the go</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Feature 8: Picture-in-Picture Mode */}
+            <div className="bg-card border border-border p-8">
+              <div className="text-5xl mb-4">🎬</div>
+              <h3 className="text-2xl font-bold mb-4 font-mono">Picture-in-Picture Mode</h3>
+              <p className="text-muted-foreground mb-6">
+                Keep Quack visible while working in other apps. PiP mode lets you monitor
+                Claude's progress without switching windows. Stay productive, stay informed.
+              </p>
+              <ul className="space-y-2 text-sm font-mono">
+                <li className="flex items-start gap-2">
+                  <span className="text-green-500">✓</span>
+                  <span>Always-on-top floating window</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-green-500">✓</span>
+                  <span>Resizable & draggable</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-green-500">✓</span>
+                  <span>Monitor multiple sessions</span>
                 </li>
               </ul>
             </div>

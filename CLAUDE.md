@@ -30,7 +30,7 @@ This is the **landing page website for Quack** - a Visual GUI for AI Coding with
 ### Core Features to Highlight
 
 1. **Multi-Project Workspace** (MAIN FEATURE)
-   - Run 3+ Claude sessions simultaneously
+   - Run 10+ Claude sessions simultaneously
    - Switch projects while Claude processes
    - Never wait idle again
 

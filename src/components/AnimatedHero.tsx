@@ -186,12 +186,12 @@ export function AnimatedHero({ onMeetTeamClick, onGetStartedClick }: AnimatedHer
   }, [])
 
   return (
-    <section ref={heroRef} className="relative px-6 py-16 lg:py-20 min-h-[85vh] flex flex-col items-center justify-center overflow-hidden">
+    <section ref={heroRef} className="relative px-6 py-20 lg:py-32 min-h-[85vh] flex flex-col items-center justify-center overflow-hidden">
       {/* Background gradient - 2025 trend: subtle mesh gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-primary/10 opacity-40 pointer-events-none" />
 
       {/* Single Column Centered Content */}
-      <div className="max-w-5xl mx-auto text-center space-y-8 relative z-10">
+      <div className="max-w-7xl mx-auto text-center space-y-12 relative z-10">
 
         {/* Orange dot indicator */}
         <div className="flex items-center justify-center gap-3 text-sm">
@@ -200,26 +200,26 @@ export function AnimatedHero({ onMeetTeamClick, onGetStartedClick }: AnimatedHer
         </div>
 
         {/* Title */}
-        <div className="space-y-4">
+        <div className="space-y-8">
           <h1
             ref={titleRef}
-            className="text-4xl sm:text-5xl lg:text-7xl font-bold text-foreground leading-tight"
+            className="text-3xl sm:text-4xl lg:text-6xl font-bold text-foreground leading-tight"
           >
             Quack: Visual GUI for AI Coding with Claude Code
           </h1>
-          <div className="text-2xl sm:text-3xl lg:text-4xl text-muted-foreground font-semibold">
+          <div className="text-xl sm:text-2xl lg:text-3xl text-muted-foreground font-semibold">
             🦆 Work on Multiple Projects While Claude Thinks
           </div>
 
           {/* Subtitle */}
           <p
             ref={subtitleRef}
-            className="text-lg sm:text-xl text-foreground/90 font-mono max-w-2xl mx-auto leading-relaxed"
+            className="text-base sm:text-lg text-foreground/90 font-mono max-w-3xl mx-auto leading-relaxed"
           >
             <span className="text-primary font-semibold">Never Wait Idle Again.</span>
             <br />
             <span className="text-base text-muted-foreground">
-              Run 3+ Claude Code sessions in parallel. Switch projects instantly.
+              Run 10+ Claude Code sessions in parallel. Switch projects instantly.
             </span>
           </p>
         </div>
@@ -263,7 +263,7 @@ export function AnimatedHero({ onMeetTeamClick, onGetStartedClick }: AnimatedHer
       {/* Video Container - Peeking from below with perspective */}
       <div
         ref={videoContainerRef}
-        className="w-full max-w-6xl mx-auto mt-12 relative z-0"
+        className="w-full max-w-6xl mx-auto mt-20 relative z-0"
         style={{
           perspective: '2000px',
           transformStyle: 'preserve-3d'
@@ -297,14 +297,6 @@ export function AnimatedHero({ onMeetTeamClick, onGetStartedClick }: AnimatedHer
 
         {/* Glow effect behind video - 2025 trend */}
         <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 via-primary/10 to-primary/20 blur-3xl opacity-50 pointer-events-none -z-10" />
-      </div>
-
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50 animate-bounce">
-        <span className="text-xs text-muted-foreground font-mono">SCROLL TO EXPLORE</span>
-        <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-        </svg>
       </div>
     </section>
   )

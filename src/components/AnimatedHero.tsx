@@ -229,7 +229,7 @@ export function AnimatedHero({ onMeetTeamClick, onGetStartedClick }: AnimatedHer
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
               ref={meetTeamBtnRef}
-              onClick={() => window.open('https://discord.gg/quack', '_blank')}
+              onClick={() => window.open('https://discord.gg/bQd39uDhnc', '_blank')}
               className="px-10 py-5 bg-primary text-primary-foreground text-lg font-mono uppercase tracking-wider hover:bg-primary/90 transition-colors border border-transparent shadow-lg"
             >
               🦆 JOIN DISCORD COMMUNITY
@@ -284,14 +284,6 @@ export function AnimatedHero({ onMeetTeamClick, onGetStartedClick }: AnimatedHer
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             />
-          </div>
-
-          {/* Floating badge - Watch Demo */}
-          <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-6 py-3 rounded-full font-mono text-sm shadow-2xl border border-primary-foreground/20 backdrop-blur-sm">
-            <div className="flex items-center gap-2">
-              <span>▶️</span>
-              <span className="font-bold">Watch Demo</span>
-            </div>
           </div>
         </div>
 

@@ -105,7 +105,7 @@ export default function RootLayout({
     "url": "https://quack-app.dev",
     "logo": "https://quack-app.dev/images/quackapp.png",
     "sameAs": [
-      "https://discord.gg/quack",
+      "https://discord.gg/bQd39uDhnc",
       "https://twitter.com/quackapp"
     ],
     "founder": {

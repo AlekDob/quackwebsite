@@ -65,7 +65,7 @@ export default function Home() {
             <span className="text-muted-foreground uppercase tracking-wider font-mono">THE PROBLEM</span>
           </div>
 
-          <h2 className="text-4xl lg:text-6xl font-bold mb-8 font-mono">
+          <h2 className="text-3xl lg:text-5xl font-bold mb-8 font-mono">
             The Claude Code Problem Nobody Talks About
           </h2>
 
@@ -117,7 +117,7 @@ export default function Home() {
             <span className="text-muted-foreground uppercase tracking-wider font-mono">THE SOLUTION</span>
           </div>
 
-          <h2 className="text-4xl lg:text-6xl font-bold mb-8 font-mono">
+          <h2 className="text-3xl lg:text-5xl font-bold mb-8 font-mono">
             Parallel AI Development. Finally.
           </h2>
 
@@ -207,7 +207,7 @@ export default function Home() {
             <span className="text-muted-foreground uppercase tracking-wider font-mono">FEATURES</span>
           </div>
 
-          <h2 className="text-4xl lg:text-6xl font-bold mb-8 font-mono">
+          <h2 className="text-3xl lg:text-5xl font-bold mb-8 font-mono">
             Everything You Need, Visually
           </h2>
 
@@ -424,7 +424,7 @@ export default function Home() {
             />
           </div>
 
-          <h2 className="text-5xl lg:text-7xl font-bold mb-8 font-mono">
+          <h2 className="text-4xl lg:text-6xl font-bold mb-8 font-mono">
             Ready to 10x Your
             <br />
             Claude Code Workflow?
@@ -439,7 +439,7 @@ export default function Home() {
           {/* Main CTA Buttons */}
           <div className="flex flex-col sm:flex-row justify-center gap-4 mb-16">
             <button
-              onClick={() => window.open('https://discord.gg/quack', '_blank')}
+              onClick={() => window.open('https://discord.gg/bQd39uDhnc', '_blank')}
               className="px-12 py-5 bg-primary text-primary-foreground text-lg font-mono uppercase tracking-wider hover:bg-primary/90 transition-all transform hover:scale-105 shadow-lg"
             >
               🦆 JOIN DISCORD - GET EARLY ACCESS

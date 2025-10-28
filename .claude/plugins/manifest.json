@@ -1,0 +1,23 @@
+[
+  {
+    "id": "nextjs-vercel-pro",
+    "name": "Nextjs Vercel Pro",
+    "description": "Complete Next.js and Vercel development toolkit with deployment automation and performance optimization",
+    "category": "agent",
+    "version": "1.0.0",
+    "author": "Daniel Avila",
+    "repository": "https://github.com/davila7/claude-code-templates",
+    "installed": true,
+    "source": "davila7",
+    "metadata": {
+      "tags": [
+        "nextjs",
+        "vercel",
+        "react",
+        "deployment",
+        "performance"
+      ]
+    },
+    "scope": "project"
+  }
+]

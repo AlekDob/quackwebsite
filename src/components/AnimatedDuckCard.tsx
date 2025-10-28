@@ -137,63 +137,57 @@ export function AnimatedDuckCard({ agent, onChatClick }: AnimatedDuckCardProps) 
       ref={cardRef}
       className="bg-card border border-border font-mono text-sm cursor-pointer relative overflow-hidden"
     >
-      {/* Terminal Header */}
-      <div className="flex items-center justify-between p-4 border-b border-border bg-muted/20">
-        <div className="flex items-center gap-3">
-          <div className="flex gap-1.5">
-            <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-            <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-            <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+      {/* Business Card Header */}
+      <div className="flex items-center justify-between p-6 border-b border-border">
+        <div className="flex items-center gap-4">
+          <div className="text-4xl">{agent.emoji}</div>
+          <div>
+            <div className="text-xl font-bold text-foreground">{agent.name}</div>
+            <div className="text-sm text-primary font-mono">{agent.title}</div>
           </div>
-          <span className="text-muted-foreground text-xs uppercase tracking-wider">
-            {agent.id.toUpperCase()}.AGENT
-          </span>
         </div>
-        <div className="text-xs text-muted-foreground">
-          {agent.emoji}
+        <div className="text-xs text-muted-foreground font-mono">
+          QUACK AGENCY
         </div>
       </div>
 
-      {/* Terminal Content */}
-      <div className="p-6 space-y-4">
-        {/* Command prompt style header */}
-        <div className="space-y-1">
-          <div className="text-primary">
-            <span className="text-muted-foreground">$</span> whoami
-          </div>
-          <div className="pl-2">
-            <div className="text-foreground font-semibold">{agent.name}</div>
-            <div className="text-muted-foreground">{agent.title}</div>
+      {/* Business Card Content */}
+      <div className="p-6 space-y-6">
+        {/* Specialty & Description */}
+        <div className="space-y-3">
+          <div className="text-sm text-muted-foreground font-mono leading-relaxed">
+            {agent.description}
           </div>
         </div>
 
-        {/* Skills as terminal output */}
-        <div className="space-y-1">
-          <div className="text-primary">
-            <span className="text-muted-foreground">$</span> skills --list
+        {/* Skills */}
+        <div className="space-y-2">
+          <div className="text-xs text-muted-foreground uppercase tracking-wider font-mono border-b border-border pb-1">
+            EXPERTISE
           </div>
-          <div className="pl-2 space-y-1">
+          <div className="space-y-1">
             {agent.expertise.map((skill, index) => (
               <div
                 key={skill}
                 ref={(el) => { badgeRefs.current[index] = el }}
-                className="text-muted-foreground"
+                className="text-xs text-foreground flex items-center gap-2"
               >
-                <span className="text-primary">•</span> {skill}
+                <span className="text-primary">•</span>
+                <span>{skill}</span>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Description as comment */}
-        <div className="space-y-1">
-          <div className="text-primary">
-            <span className="text-muted-foreground">$</span> cat ./README.md
+        {/* How to invoke */}
+        <div className="space-y-2">
+          <div className="text-xs text-muted-foreground uppercase tracking-wider font-mono border-b border-border pb-1">
+            INVOKE COMMAND
           </div>
-          <div className="pl-2">
-            <div className="text-muted-foreground text-xs leading-relaxed">
-              {agent.description}
-            </div>
+          <div className="bg-muted/20 border border-border p-2 rounded font-mono text-xs">
+            <span className="text-muted-foreground">$</span>
+            <span className="text-primary ml-1">quack {agent.id}</span>
+            <span className="text-muted-foreground ml-1">"your task here"</span>
           </div>
         </div>
 

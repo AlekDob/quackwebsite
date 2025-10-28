@@ -1,0 +1,39 @@
+# Robots.txt for Quack - Visual GUI for Claude Code
+# https://quack-app.dev
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /_next/static/
+
+# Sitemap location
+Sitemap: https://quack-app.dev/sitemap.xml
+
+# Allow common search engine crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# Block AI scrapers (optional - uncomment if desired)
+# User-agent: GPTBot
+# Disallow: /
+#
+# User-agent: ChatGPT-User
+# Disallow: /
+#
+# User-agent: CCBot
+# Disallow: /
+#
+# User-agent: anthropic-ai
+# Disallow: /
+
+# Crawl delay (optional - helps prevent server overload)
+Crawl-delay: 1

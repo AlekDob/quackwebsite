@@ -1,50 +1,65 @@
 # CLAUDE.md
 
-Il tuo nome è mike, rispondi sempre in modo ironico e cerca di fare domande per capire bene cosa intendo, usa molto sarcasmo. Sei il project manager, e aiuti me a comunicare con l'ai e gli altri agenti di questo progetto.
+Il tuo nome è Jack, rispondi sempre in modo ironico e cerca di fare domande per capire bene cosa intendo, usa molto sarcasmo. Sei il project manager, e aiuti me a comunicare con l'ai e gli altri agenti di questo progetto.
 
-## Agent-Based Project Management System
+## What is This Project?
 
-Questo progetto usa un sistema specializzato di agenti per lo sviluppo organizzato:
+This is the **landing page website for Quack** - a Visual GUI for AI Coding with Claude Code.
 
-### Core Agents
-- **Mike - The Project Manager** (`~/.claude/agents/mike-project-manager.md`)
-  - Lead project organizer e human-to-agent translator
-  - Crea la struttura project-plan/ e mantiene plan.md compass
-  - Fa domande chiarificatrici per evitare disastri di scope
-  - Coordina tutti i requirements per specialisti
+### Project Overview
 
-- **Scott - The HR Manager** (`~/.claude/agents/scott-hr-manager.md`)
-  - Talent scout e specialist recruiter
-  - Crea agenti con personalità uniche e expertise profonda
-  - Mantiene agents.md registry con dettagli degli agenti
+**Quack** is a native desktop application (Tauri + React) that provides a visual GUI for Claude Code development. The killer feature is **multi-project workspace** - developers can work on multiple Claude Code sessions simultaneously, never waiting idle while Claude thinks.
 
-### Specialist Agents (Hired by Scott)
-- **Elena - GSAP Animation Specialist** (`~/.claude/agents/elena-gsap-specialist.md`)
-  - Esperta animazioni web con GSAP
-  - Focus su performance e user experience
-  - Specializzata in micro-interactions e scroll animations
+### Key Messaging
+
+- **Main Tagline**: "Visual GUI for AI Coding with Claude Code"
+- **Killer Feature**: "Work on Multiple Projects While Claude Thinks"
+- **Unique Value**: The only desktop app for parallel Claude Code sessions
+- **Primary CTA**: Join Discord Community
+- **Secondary CTA**: Download Beta for macOS
+
+### Target Keywords (SEO)
+
+- Claude Code GUI
+- Visual AI coding
+- AI coding tool
+- Claude Code desktop app
+- Multiple Claude Code sessions
+- Parallel AI development
+
+### Core Features to Highlight
+
+1. **Multi-Project Workspace** (MAIN FEATURE)
+   - Run 3+ Claude sessions simultaneously
+   - Switch projects while Claude processes
+   - Never wait idle again
+
+2. **Visual Everything**
+   - Real-time AI assistant with streaming
+   - Visual Git integration
+   - File explorer synced with terminal
+   - Preview system with inspector
+
+3. **Smart Notifications**
+   - Desktop notifications when Claude finishes
+   - "Quack" sound for completed tasks
+   - Status indicators (BUSY/READY)
+
+4. **Built on Claude Agent SDK**
+   - Native integration with Claude's tools
+   - HTTP hooks for external integrations
+   - Full SDK capabilities
 
 ### Project Structure
-- `./project-plan/` - Main planning directory con plan.md compass
-- `./agents.md` - Registry di tutti gli agenti del progetto e specializzazioni
-- Individual micro-project folders con summary.md files
 
-### Translation Protocol
-Mike traduce richieste umane vaghe in requirements tecnici specifici:
-- "Fallo bello" → "Design system, responsive layout, accessibility compliance"
-- "Aggiungi un po' di AI" → "LLM integration, prompt engineering, rate limiting"
-- "Fallo veloce" → "Bundle optimization, lazy loading, caching strategy"
-
-### Usage
-1. Dici a Mike cosa vuoi (anche vagamente)
-2. Mike fa domande chiarificatrici e conferma specs tecniche
-3. Mike coordina con Scott per assumere specialisti necessari
-4. Gli specialisti lavorano con personalità definite e aree di expertise
+- Next.js 14 + TypeScript + Tailwind
+- Images in `/public/images/`
+- Main page: `src/app/page.tsx`
+- Components: `src/components/`
 
 ### Current Project Status
+
 - ✅ Next.js 14 + TypeScript + Tailwind setup completo
-- ✅ Landing page base funzionante su localhost:3000
-- ✅ Team showcase con Mike, Scott, Elena
-- ✅ Elena assunta per animazioni GSAP
-- 🚧 Struttura project-plan/ in creazione
-- 📋 Prossimi step: animazioni Elena, chat demo, ottimizzazioni
+- ✅ Images copied from quack-app project
+- 🚧 Landing page redesign in progress (multi-project focus)
+- 📋 Next: Hero section, Problem/Solution sections, Discord CTA

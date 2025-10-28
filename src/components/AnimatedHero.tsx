@@ -2,6 +2,12 @@
 
 import { useRef, useEffect } from 'react'
 import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+// Register ScrollTrigger plugin
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger)
+}
 
 interface AnimatedHeroProps {
   onMeetTeamClick?: () => void
@@ -11,77 +17,130 @@ interface AnimatedHeroProps {
 export function AnimatedHero({ onMeetTeamClick, onGetStartedClick }: AnimatedHeroProps) {
   const heroRef = useRef<HTMLDivElement>(null)
   const titleRef = useRef<HTMLHeadingElement>(null)
-  const subtitleRef = useRef<HTMLHeadingElement>(null)
-  const descriptionRef = useRef<HTMLParagraphElement>(null)
+  const subtitleRef = useRef<HTMLParagraphElement>(null)
   const buttonsRef = useRef<HTMLDivElement>(null)
+  const videoContainerRef = useRef<HTMLDivElement>(null)
   const meetTeamBtnRef = useRef<HTMLButtonElement>(null)
-  const getStartedBtnRef = useRef<HTMLButtonElement>(null)
+  const getStartedBtnRef = useRef<HTMLDivElement>(null) // Changed to HTMLDivElement since it's a div now
 
   useEffect(() => {
     const title = titleRef.current
     const subtitle = subtitleRef.current
-    const description = descriptionRef.current
     const buttons = buttonsRef.current
+    const videoContainer = videoContainerRef.current
     const meetTeamBtn = meetTeamBtnRef.current
     const getStartedBtn = getStartedBtnRef.current
+    const hero = heroRef.current
 
-    if (!title || !subtitle || !description || !buttons) return
+    if (!title || !subtitle || !buttons || !videoContainer || !hero) return
 
     // Initial state - everything hidden
-    gsap.set([title, subtitle, description, buttons], {
+    gsap.set([title, subtitle, buttons], {
       opacity: 0,
-      y: 30
+      y: 50
     })
 
-    // Elena's signature smooth entrance sequence
+    gsap.set(videoContainer, {
+      opacity: 0,
+      y: 100,
+      scale: 0.9,
+      rotateX: 8
+    })
+
+    // Elena's signature smooth entrance sequence - 2025 style
     const timeline = gsap.timeline({ delay: 0.2 })
 
     timeline
-      // Title appears with subtle bounce
+      // Title appears with smooth elastic bounce
       .to(title, {
         opacity: 1,
         y: 0,
-        duration: 0.8,
-        ease: 'back.out(1.2)'
+        duration: 1.4,
+        ease: 'elastic.out(1, 0.5)'
       })
-      // Subtitle follows smoothly
+      // Subtitle follows with butter-smooth slide
       .to(subtitle, {
         opacity: 1,
         y: 0,
-        duration: 0.6,
-        ease: 'power2.out'
-      }, '-=0.4')
-      // Description with slight delay
-      .to(description, {
-        opacity: 1,
-        y: 0,
-        duration: 0.6,
-        ease: 'power2.out'
-      }, '-=0.2')
-      // Buttons with stagger effect
+        duration: 0.9,
+        ease: 'power3.out'
+      }, '-=0.7')
+      // Buttons cascade in
       .to(buttons, {
         opacity: 1,
         y: 0,
-        duration: 0.5,
+        duration: 0.7,
         ease: 'power2.out'
-      }, '-=0.1')
+      }, '-=0.4')
 
-    // Button hover animations
+    // Video peek effect - initially hidden, slightly peeking
+    gsap.set(videoContainer, {
+      opacity: 0.3,
+      y: 80,
+      scale: 0.92,
+      rotateX: 12
+    })
+
+    // Fade in video peek after content loads
+    timeline.to(videoContainer, {
+      opacity: 0.5,
+      y: 60,
+      scale: 0.94,
+      rotateX: 10,
+      duration: 1,
+      ease: 'power2.out'
+    }, '-=0.3')
+
+    // ScrollTrigger: Video reveal on scroll - 2025 trend: perspective + scale
+    ScrollTrigger.create({
+      trigger: videoContainer,
+      start: 'top bottom-=100',
+      end: 'top center',
+      scrub: 1.2,
+      onUpdate: (self) => {
+        const progress = self.progress
+        gsap.to(videoContainer, {
+          opacity: 0.5 + (progress * 0.5), // 0.5 → 1
+          y: 60 - (progress * 60), // 60 → 0
+          scale: 0.94 + (progress * 0.06), // 0.94 → 1
+          rotateX: 10 - (progress * 10), // 10deg → 0deg
+          duration: 0.1,
+          overwrite: true
+        })
+      }
+    })
+
+    // Orange dot pulsing animation
+    const orangeDot = hero.querySelector('.w-2.h-2.bg-primary')
+    if (orangeDot) {
+      gsap.to(orangeDot, {
+        scale: 1.4,
+        opacity: 0.4,
+        duration: 1.8,
+        ease: 'sine.inOut',
+        repeat: -1,
+        yoyo: true
+      })
+    }
+
+    // Button hover animations - 2025 style: lift + glow
     if (meetTeamBtn) {
       const handleMeetTeamHover = () => {
         gsap.to(meetTeamBtn, {
-          scale: 1.02,
-          boxShadow: '0 8px 25px -5px rgba(59, 130, 246, 0.3)',
-          duration: 0.2,
-          ease: 'power2.out'
+          scale: 1.05,
+          y: -4,
+          boxShadow: '0 20px 40px -12px rgba(255, 107, 0, 0.5)',
+          duration: 0.3,
+          ease: 'back.out(2)'
         })
       }
 
       const handleMeetTeamLeave = () => {
         gsap.to(meetTeamBtn, {
           scale: 1,
-          boxShadow: '0 0px 0px 0px rgba(59, 130, 246, 0)',
-          duration: 0.2,
+          y: 0,
+          boxShadow: '0 0px 0px 0px rgba(255, 107, 0, 0)',
+          duration: 0.3,
           ease: 'power2.out'
         })
       }
@@ -98,9 +157,10 @@ export function AnimatedHero({ onMeetTeamClick, onGetStartedClick }: AnimatedHer
     if (getStartedBtn) {
       const handleGetStartedHover = () => {
         gsap.to(getStartedBtn, {
-          scale: 1.02,
-          borderColor: 'rgb(59, 130, 246)',
-          duration: 0.2,
+          scale: 1.03,
+          borderColor: 'rgb(255, 107, 0)',
+          backgroundColor: 'rgba(255, 107, 0, 0.08)',
+          duration: 0.3,
           ease: 'power2.out'
         })
       }
@@ -109,7 +169,8 @@ export function AnimatedHero({ onMeetTeamClick, onGetStartedClick }: AnimatedHer
         gsap.to(getStartedBtn, {
           scale: 1,
           borderColor: 'hsl(var(--border))',
-          duration: 0.2,
+          backgroundColor: 'transparent',
+          duration: 0.3,
           ease: 'power2.out'
         })
       }
@@ -124,102 +185,126 @@ export function AnimatedHero({ onMeetTeamClick, onGetStartedClick }: AnimatedHer
     }
   }, [])
 
-  const scrollToTeam = () => {
-    const teamSection = document.querySelector('#team-section')
-    if (teamSection) {
-      teamSection.scrollIntoView({ behavior: 'smooth' })
-    }
-    onMeetTeamClick?.()
-  }
-
   return (
-    <section ref={heroRef} className="relative px-6 py-32 min-h-screen flex items-center">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        {/* Left: Content */}
-        <div className="space-y-8">
-          {/* Orange dot indicator */}
-          <div className="flex items-center gap-3 text-sm">
-            <div className="w-2 h-2 bg-primary rounded-full"></div>
-            <span className="text-muted-foreground uppercase tracking-wider">VISION</span>
-          </div>
+    <section ref={heroRef} className="relative px-6 py-16 lg:py-20 min-h-[85vh] flex flex-col items-center justify-center overflow-hidden">
+      {/* Background gradient - 2025 trend: subtle mesh gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-primary/10 opacity-40 pointer-events-none" />
 
+      {/* Single Column Centered Content */}
+      <div className="max-w-5xl mx-auto text-center space-y-8 relative z-10">
+
+        {/* Orange dot indicator */}
+        <div className="flex items-center justify-center gap-3 text-sm">
+          <div className="w-2 h-2 bg-primary rounded-full"></div>
+          <span className="text-muted-foreground uppercase tracking-wider font-mono">QUACK AGENCY</span>
+        </div>
+
+        {/* Title */}
+        <div className="space-y-4">
           <h1
             ref={titleRef}
-            className="text-5xl lg:text-7xl font-bold text-foreground leading-tight"
+            className="text-4xl sm:text-5xl lg:text-7xl font-bold text-foreground leading-tight"
           >
-            Agent-Native
-            <br />
-            Development Workflow
+            Quack: Visual GUI for AI Coding with Claude Code
           </h1>
-
-          <div className="space-y-4">
-            <p
-              ref={subtitleRef}
-              className="text-lg text-muted-foreground font-mono"
-            >
-              The only development methodology
-              <br />
-              that works everywhere you do.
-            </p>
-
-            <p
-              ref={descriptionRef}
-              className="text-sm text-muted-foreground font-mono leading-relaxed"
-            >
-              From IDE to CI/CD - delegate complete tasks like
-              <br />
-              refactors, incident response, and migrations to Droids
-              <br />
-              without changing your tools, models, or workflow.
-            </p>
+          <div className="text-2xl sm:text-3xl lg:text-4xl text-muted-foreground font-semibold">
+            🦆 Work on Multiple Projects While Claude Thinks
           </div>
 
-          <div ref={buttonsRef} className="flex gap-4">
+          {/* Subtitle */}
+          <p
+            ref={subtitleRef}
+            className="text-lg sm:text-xl text-foreground/90 font-mono max-w-2xl mx-auto leading-relaxed"
+          >
+            <span className="text-primary font-semibold">Never Wait Idle Again.</span>
+            <br />
+            <span className="text-base text-muted-foreground">
+              Run 3+ Claude Code sessions in parallel. Switch projects instantly.
+            </span>
+          </p>
+        </div>
+
+        {/* CTAs */}
+        <div ref={buttonsRef} className="flex flex-col items-center gap-6">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
               ref={meetTeamBtnRef}
-              onClick={scrollToTeam}
-              className="px-6 py-3 bg-primary text-primary-foreground text-sm font-mono uppercase tracking-wider hover:bg-primary/90 transition-colors border border-transparent"
+              onClick={() => window.open('https://discord.gg/quack', '_blank')}
+              className="px-10 py-5 bg-primary text-primary-foreground text-lg font-mono uppercase tracking-wider hover:bg-primary/90 transition-colors border border-transparent shadow-lg"
             >
-              START BUILDING →
+              🦆 JOIN DISCORD COMMUNITY
             </button>
+            <div
+              ref={getStartedBtnRef}
+              className="px-10 py-5 border border-border text-muted-foreground font-mono text-lg uppercase tracking-wider bg-muted/10 flex items-center justify-center cursor-not-allowed"
+            >
+              <span>📦 DOWNLOAD - COMING SOON</span>
+            </div>
           </div>
-        </div>
 
-        {/* Right: Visual Element */}
-        <div className="relative hidden lg:block">
-          <div className="bg-card border border-border p-8 font-mono text-sm">
-            {/* Terminal-like header */}
-            <div className="flex items-center gap-2 mb-6 pb-4 border-b border-border">
-              <div className="flex gap-1.5">
-                <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-              </div>
-              <span className="text-muted-foreground ml-4">WEB BROWSER</span>
+          {/* Trust signals */}
+          <div className="flex flex-wrap items-center justify-center gap-6 text-xs text-muted-foreground font-mono">
+            <div className="flex items-center gap-2">
+              <span>💻</span>
+              <span>macOS Native App</span>
             </div>
-
-            {/* Animated dots matrix */}
-            <div className="grid grid-cols-12 gap-2">
-              {Array.from({ length: 144 }, (_, i) => (
-                <div
-                  key={i}
-                  className={`w-2 h-2 rounded-full transition-all duration-1000 ${
-                    Math.random() > 0.7 ? 'bg-primary animate-pulse' :
-                    Math.random() > 0.4 ? 'bg-muted' : 'bg-transparent'
-                  }`}
-                />
-              ))}
+            <div className="flex items-center gap-2">
+              <span>🚀</span>
+              <span>Built on Claude Agent SDK</span>
             </div>
-
-            {/* Bottom section with trusted companies */}
-            <div className="mt-8 pt-4 border-t border-border">
-              <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                <div className="w-2 h-2 bg-primary rounded-full"></div>
-                <span>TRUSTED BY TEAMS AT</span>
-              </div>
+            <div className="flex items-center gap-2">
+              <span>💬</span>
+              <span>Join Early Access</span>
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Video Container - Peeking from below with perspective */}
+      <div
+        ref={videoContainerRef}
+        className="w-full max-w-6xl mx-auto mt-12 relative z-0"
+        style={{
+          perspective: '2000px',
+          transformStyle: 'preserve-3d'
+        }}
+      >
+        {/* Glassmorphism container - 2025 trend */}
+        <div className="relative border border-border/50 rounded-2xl overflow-hidden shadow-2xl bg-black/40 backdrop-blur-sm">
+          {/* Gradient overlay for depth */}
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-30 pointer-events-none z-10" />
+
+          {/* YouTube Video Embed */}
+          <div className="relative pb-[56.25%]">
+            <iframe
+              className="absolute top-0 left-0 w-full h-full"
+              src="https://www.youtube.com/embed/clOiCbl7NbU"
+              title="Quack - Visual GUI for Claude Code Demo"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
+
+          {/* Floating badge - Watch Demo */}
+          <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-6 py-3 rounded-full font-mono text-sm shadow-2xl border border-primary-foreground/20 backdrop-blur-sm">
+            <div className="flex items-center gap-2">
+              <span>▶️</span>
+              <span className="font-bold">Watch Demo</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Glow effect behind video - 2025 trend */}
+        <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 via-primary/10 to-primary/20 blur-3xl opacity-50 pointer-events-none -z-10" />
+      </div>
+
+      {/* Scroll indicator */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50 animate-bounce">
+        <span className="text-xs text-muted-foreground font-mono">SCROLL TO EXPLORE</span>
+        <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+        </svg>
       </div>
     </section>
   )

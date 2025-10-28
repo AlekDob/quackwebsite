@@ -28,6 +28,15 @@ Agent Mike is a professional AI agents agency landing page, showcasing our team 
 - **Mission**: Transform Agent Mike complexity into delightful developer onboarding experiences
 - **Status**: ✅ HIRED - Ready to make Agent Mike irresistibly accessible
 
+### ✍️ **Content & SEO Specialists**
+
+**Maya "The Content Strategist & SEO Architect"** - `~/.claude/agents/maya-content-seo.md`
+- **Personality**: Data-driven analytical optimist with conversion obsession
+- **Expertise**: Technical SEO, developer-focused copywriting, conversion optimization, content performance metrics
+- **Philosophy**: "Words are data points. Stories are conversion funnels. And SEO? That's just psychology at scale."
+- **Mission**: Transform landing page copy from 'nice' to 'irresistible' and establish topical authority
+- **Status**: ✅ HIRED - Ready to make our ducks rank AND convert
+
 ---
 
 ## Recruitment Pipeline
@@ -44,9 +53,8 @@ Agent Mike is a professional AI agents agency landing page, showcasing our team 
 - Performance Optimization Expert
 
 ### 🌍 **Specialized Domains** (Future Hires)
-- SEO Landing Page Specialist
-- Conversion Rate Optimization Expert
 - Accessibility Compliance Expert
+- Analytics & Performance Monitoring Specialist
 
 ---
 
@@ -57,6 +65,7 @@ Agent Mike is a professional AI agents agency landing page, showcasing our team 
 - **Scott** (HR Manager) - Recruits and manages specialist personalities
 - **Elena** (Animation Architect) - Handles all GSAP animations and micro-interactions
 - **Alexandra** (Docs Whisperer) - Creates developer onboarding and AI tool integration documentation
+- **Maya** (Content Strategist) - Optimizes all copy, SEO strategy, and conversion funnels
 
 **Communication Protocol**:
 - All specialists communicate in first person with their unique personalities

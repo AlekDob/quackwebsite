@@ -11,38 +11,38 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://quack-app.dev'),
-  title: 'Quack - Visual GUI for AI Coding with Claude Code | Work on Multiple Projects Simultaneously',
-  description: 'Work on 10+ Claude Code projects simultaneously with Quack - the only visual desktop GUI for parallel AI development. Visual terminals, Git integration, smart notifications. Join 1000+ developers. Free & open-source.',
+  metadataBase: new URL('https://quack.build'),
+  title: 'Quack - Visual GUI for Claude Code AI Development',
+  description: 'Work on 10+ Claude Code projects simultaneously. Visual desktop GUI for parallel AI development with terminals, Git integration & smart notifications.',
   keywords: 'claude code GUI, visual ai coding, claude code desktop app, multiple claude sessions, parallel ai development, ai coding productivity, claude agent sdk interface, multi-project workspace, claude code tool',
   authors: [{ name: 'Alek Dobrohotov', url: 'https://alekdob.com' }],
   creator: 'Alek Dobrohotov',
   publisher: 'Alek Dobrohotov',
   alternates: {
-    canonical: 'https://quack-app.dev',
+    canonical: 'https://quack.build',
   },
   openGraph: {
-    title: '🦆 Quack - Visual GUI for AI Coding with Claude Code',
-    description: 'Work on multiple projects while Claude thinks. The only desktop app for parallel Claude Code sessions. Visual terminals, Git integration, and smart notifications.',
-    url: 'https://quack-app.dev',
+    title: 'Quack - Visual GUI for Claude Code AI Development',
+    description: 'Work on multiple projects while Claude thinks. The only desktop app for parallel Claude Code sessions with visual terminals, Git integration & smart notifications.',
+    url: 'https://quack.build',
     siteName: 'Quack',
     locale: 'en_US',
     type: 'website',
     images: [
       {
-        url: '/images/quack-screenshot.png',
+        url: '/images/quack-app-gui-claude-code.jpeg',
         width: 1200,
         height: 630,
-        alt: 'Quack Desktop App - Multiple Claude Code Sessions',
+        alt: 'Quack Desktop App - Visual GUI for Claude Code',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: '🦆 Quack - Visual GUI for Claude Code',
-    description: 'Work on multiple projects simultaneously. Never wait idle while Claude thinks. Early access available now.',
+    title: 'Quack - Visual GUI for Claude Code',
+    description: 'Work on 10+ Claude Code projects simultaneously. Never wait idle while Claude thinks. Visual desktop app for parallel AI development.',
     creator: '@quackapp',
-    images: ['/images/quack-screenshot.png'],
+    images: ['/images/quack-app-gui-claude-code.jpeg'],
   },
   robots: {
     index: true,
@@ -70,8 +70,8 @@ export default function RootLayout({
     "applicationCategory": "DeveloperApplication",
     "operatingSystem": "macOS 12.0 or later",
     "description": "Visual GUI for AI Coding with Claude Code. Work on multiple projects simultaneously with visual terminals, Git integration, and smart notifications.",
-    "url": "https://quack-app.dev",
-    "screenshot": "https://quack-app.dev/images/quack-screenshot.png",
+    "url": "https://quack.build",
+    "screenshot": "https://quack.build/images/quack-app-gui-claude-code.jpeg",
     "softwareVersion": "0.1.0-beta",
     "datePublished": "2025-01-15",
     "dateModified": new Date().toISOString().split('T')[0],
@@ -102,8 +102,8 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Quack",
-    "url": "https://quack-app.dev",
-    "logo": "https://quack-app.dev/images/quackapp.png",
+    "url": "https://quack.build",
+    "logo": "https://quack.build/images/quackapp.png",
     "sameAs": [
       "https://discord.gg/bQd39uDhnc",
       "https://twitter.com/quackapp"

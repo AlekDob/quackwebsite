@@ -5,6 +5,7 @@ import { AnimatedHero } from '@/components/AnimatedHero'
 import { AnimatedDuckCard } from '@/components/AnimatedDuckCard'
 import { AnimatedSection } from '@/components/AnimatedSection'
 import { AnimatedCard } from '@/components/AnimatedCard'
+import { WaitlistForm } from '@/components/WaitlistForm'
 
 export default function Home() {
   const [selectedAgent, setSelectedAgent] = useState<any>(null)
@@ -479,13 +480,22 @@ export default function Home() {
               and started working in parallel. Early access available now.
             </p>
 
-            {/* Main CTA Buttons */}
-            <div className="flex flex-col sm:flex-row justify-center gap-4 mb-16">
+            {/* Waitlist Form */}
+            <div className="mb-8 max-w-2xl mx-auto">
+              <WaitlistForm
+                source="cta_bottom"
+                placeholder="your@email.com"
+                buttonText="🦆 Join Waitlist"
+              />
+            </div>
+
+            {/* Discord Button */}
+            <div className="mb-16">
               <button
                 onClick={() => window.open('https://discord.gg/bQd39uDhnc', '_blank')}
-                className="px-12 py-5 bg-primary text-primary-foreground text-lg font-mono uppercase tracking-wider hover:bg-primary/90 transition-all transform hover:scale-105 shadow-lg"
+                className="px-8 py-3 border-2 border-primary text-primary font-mono uppercase tracking-wider hover:bg-primary hover:text-primary-foreground transition-all"
               >
-                🦆 JOIN DISCORD - GET EARLY ACCESS
+                Or Join Our Discord Community
               </button>
             </div>
           </AnimatedSection>

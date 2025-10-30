@@ -31,10 +31,10 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/images/quack-app-gui-claude-code.jpeg',
-        width: 1200,
-        height: 630,
-        alt: 'Quack Desktop App - Visual GUI for Claude Code',
+        url: '/images/quack-team.jpg',
+        width: 1536,
+        height: 1024,
+        alt: 'Quack - Visual GUI for Claude Code with AI Development Team',
       },
     ],
   },
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     title: 'Quack - Visual GUI for Claude Code',
     description: 'Work on 10+ Claude Code projects simultaneously. Never wait idle while Claude thinks. Visual desktop app for parallel AI development.',
     creator: '@quackapp',
-    images: ['/images/quack-app-gui-claude-code.jpeg'],
+    images: ['/images/quack-team.jpg'],
   },
   robots: {
     index: true,
@@ -72,7 +72,7 @@ export default function RootLayout({
     "operatingSystem": "macOS 12.0 or later",
     "description": "Visual GUI for AI Coding with Claude Code. Work on multiple projects simultaneously with visual terminals, Git integration, and smart notifications.",
     "url": "https://quack.build",
-    "screenshot": "https://quack.build/images/quack-app-gui-claude-code.jpeg",
+    "screenshot": "https://quack.build/images/quack-team.jpg",
     "softwareVersion": "0.1.0-beta",
     "datePublished": "2025-01-15",
     "dateModified": new Date().toISOString().split('T')[0],

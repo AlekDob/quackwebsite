@@ -6,6 +6,7 @@ import { AnimatedDuckCard } from '@/components/AnimatedDuckCard'
 import { AnimatedSection } from '@/components/AnimatedSection'
 import { AnimatedCard } from '@/components/AnimatedCard'
 import { WaitlistForm } from '@/components/WaitlistForm'
+import { AppShowcase } from '@/components/AppShowcase'
 
 export default function Home() {
   const [selectedAgent, setSelectedAgent] = useState<any>(null)
@@ -121,6 +122,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* App Showcase Section - Full screen hero image */}
+      <AppShowcase />
 
       {/* Solution Section */}
       <section className="px-6 py-32">

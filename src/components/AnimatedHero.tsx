@@ -4,6 +4,7 @@ import { useRef, useEffect } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { usePostHog } from 'posthog-js/react'
+import { WaitlistForm } from './WaitlistForm'
 
 // Register ScrollTrigger plugin
 if (typeof window !== 'undefined') {
@@ -23,7 +24,6 @@ export function AnimatedHero({ onMeetTeamClick, onGetStartedClick }: AnimatedHer
   const buttonsRef = useRef<HTMLDivElement>(null)
   const videoContainerRef = useRef<HTMLDivElement>(null)
   const meetTeamBtnRef = useRef<HTMLButtonElement>(null)
-  const getStartedBtnRef = useRef<HTMLDivElement>(null) // Changed to HTMLDivElement since it's a div now
 
   useEffect(() => {
     const title = titleRef.current
@@ -31,7 +31,6 @@ export function AnimatedHero({ onMeetTeamClick, onGetStartedClick }: AnimatedHer
     const buttons = buttonsRef.current
     const videoContainer = videoContainerRef.current
     const meetTeamBtn = meetTeamBtnRef.current
-    const getStartedBtn = getStartedBtnRef.current
     const hero = heroRef.current
 
     if (!title || !subtitle || !buttons || !videoContainer || !hero) return
@@ -155,36 +154,6 @@ export function AnimatedHero({ onMeetTeamClick, onGetStartedClick }: AnimatedHer
         meetTeamBtn.removeEventListener('mouseleave', handleMeetTeamLeave)
       }
     }
-
-    if (getStartedBtn) {
-      const handleGetStartedHover = () => {
-        gsap.to(getStartedBtn, {
-          scale: 1.03,
-          borderColor: 'rgb(255, 107, 0)',
-          backgroundColor: 'rgba(255, 107, 0, 0.08)',
-          duration: 0.3,
-          ease: 'power2.out'
-        })
-      }
-
-      const handleGetStartedLeave = () => {
-        gsap.to(getStartedBtn, {
-          scale: 1,
-          borderColor: 'hsl(var(--border))',
-          backgroundColor: 'transparent',
-          duration: 0.3,
-          ease: 'power2.out'
-        })
-      }
-
-      getStartedBtn.addEventListener('mouseenter', handleGetStartedHover)
-      getStartedBtn.addEventListener('mouseleave', handleGetStartedLeave)
-
-      return () => {
-        getStartedBtn.removeEventListener('mouseenter', handleGetStartedHover)
-        getStartedBtn.removeEventListener('mouseleave', handleGetStartedLeave)
-      }
-    }
   }, [])
 
   return (
@@ -227,28 +196,34 @@ export function AnimatedHero({ onMeetTeamClick, onGetStartedClick }: AnimatedHer
         </div>
 
         {/* CTAs */}
-        <div ref={buttonsRef} className="flex flex-col items-center gap-6">
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button
-              ref={meetTeamBtnRef}
-              onClick={() => {
-                posthog?.capture('discord_button_clicked', {
-                  button_location: 'hero',
-                  button_text: 'JOIN DISCORD COMMUNITY'
-                })
-                window.open('https://discord.gg/bQd39uDhnc', '_blank')
-              }}
-              className="px-10 py-5 bg-primary text-primary-foreground text-lg font-mono uppercase tracking-wider hover:bg-primary/90 transition-colors border border-transparent shadow-lg"
-            >
-              🦆 JOIN DISCORD COMMUNITY
-            </button>
-            <div
-              ref={getStartedBtnRef}
-              className="px-10 py-5 border border-border text-muted-foreground font-mono text-lg uppercase tracking-wider bg-muted/10 flex items-center justify-center cursor-not-allowed"
-            >
-              <span>📦 DOWNLOAD - COMING SOON</span>
-            </div>
+        <div ref={buttonsRef} className="flex flex-col items-center gap-6 w-full max-w-3xl mx-auto">
+          {/* Waitlist Form - Primary CTA */}
+          <div className="w-full">
+            <WaitlistForm
+              source="hero_primary"
+              placeholder="your@email.com - Get Early Access"
+              buttonText="🦆 Join Waitlist"
+            />
           </div>
+
+          {/* Discord Button - Secondary CTA */}
+          <div className="flex items-center gap-4 text-sm text-muted-foreground font-mono">
+            <span>or</span>
+          </div>
+
+          <button
+            ref={meetTeamBtnRef}
+            onClick={() => {
+              posthog?.capture('discord_button_clicked', {
+                button_location: 'hero',
+                button_text: 'JOIN DISCORD COMMUNITY'
+              })
+              window.open('https://discord.gg/bQd39uDhnc', '_blank')
+            }}
+            className="px-10 py-4 border-2 border-primary text-primary font-mono uppercase tracking-wider hover:bg-primary hover:text-primary-foreground transition-all"
+          >
+            💬 JOIN DISCORD COMMUNITY
+          </button>
 
           {/* Trust signals */}
           <div className="flex flex-wrap items-center justify-center gap-6 text-xs text-muted-foreground font-mono">

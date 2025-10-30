@@ -228,6 +228,15 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Agent Showcase Section - Quack developer agent */}
+      <AppShowcase
+        imageSrc="/images/quack-agent.jpg"
+        title="Powered by AI Agents"
+        subtitle="Your Personal Developer Assistant"
+        description="Each Quack session runs with a dedicated AI agent. Think of it as having a senior developer always ready to help, review code, and solve problems."
+        badgeText="🤖 AI"
+      />
+
       {/* Features Section */}
       <section id="features-section" className="px-6 py-32 bg-muted/20">
         <div className="max-w-6xl mx-auto">

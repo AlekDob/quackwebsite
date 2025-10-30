@@ -3,7 +3,21 @@
 import { useRef, useState } from 'react'
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
 
-export function AppShowcase() {
+interface AppShowcaseProps {
+  imageSrc?: string
+  title?: string
+  subtitle?: string
+  description?: string
+  badgeText?: string
+}
+
+export function AppShowcase({
+  imageSrc = '/images/quack-team.jpg',
+  title = 'Quack in Action',
+  subtitle = 'Meet Your New AI Coding Team',
+  description = 'A team of specialized AI ducks ready to help you code, manage projects, and ship faster.',
+  badgeText = '🦆 Beta'
+}: AppShowcaseProps = {}) {
   const containerRef = useRef<HTMLDivElement>(null)
   const imageRef = useRef<HTMLDivElement>(null)
   const [mousePosition, setMousePosition] = useState({ x: 0.5, y: 0.5 })
@@ -81,11 +95,11 @@ export function AppShowcase() {
           <div className="flex items-center justify-center gap-3 text-sm mb-4">
             <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
             <span className="text-muted-foreground uppercase tracking-wider font-mono">
-              Quack in Action
+              {title}
             </span>
           </div>
           <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold font-mono text-foreground">
-            Meet Your New AI Coding Team
+            {subtitle}
           </h2>
         </motion.div>
 
@@ -143,8 +157,8 @@ export function AppShowcase() {
 
               {/* The actual image */}
               <motion.img
-                src="/images/quack-team.jpg"
-                alt="Quack App - Visual GUI for Claude Code with multiple AI coding sessions"
+                src={imageSrc}
+                alt={`Quack App - ${subtitle}`}
                 className="w-full h-auto object-cover relative z-0"
                 whileHover={{ scale: 1.01 }}
                 transition={{ duration: 0.3 }}
@@ -172,7 +186,7 @@ export function AppShowcase() {
               }}
               whileHover={{ scale: 1.1, rotate: 5 }}
             >
-              🦆 Beta
+              {badgeText}
             </motion.div>
           </motion.div>
         </motion.div>
@@ -185,9 +199,7 @@ export function AppShowcase() {
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          A team of specialized AI ducks ready to help you code, manage projects, and ship faster.
-          <br />
-          <span className="text-primary font-semibold">No more waiting for Claude to finish thinking.</span>
+          {description}
         </motion.p>
       </div>
     </section>

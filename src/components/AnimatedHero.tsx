@@ -3,6 +3,7 @@
 import { useRef, useEffect } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { usePostHog } from 'posthog-js/react'
 
 // Register ScrollTrigger plugin
 if (typeof window !== 'undefined') {
@@ -15,6 +16,7 @@ interface AnimatedHeroProps {
 }
 
 export function AnimatedHero({ onMeetTeamClick, onGetStartedClick }: AnimatedHeroProps) {
+  const posthog = usePostHog()
   const heroRef = useRef<HTMLDivElement>(null)
   const titleRef = useRef<HTMLHeadingElement>(null)
   const subtitleRef = useRef<HTMLParagraphElement>(null)
@@ -229,7 +231,13 @@ export function AnimatedHero({ onMeetTeamClick, onGetStartedClick }: AnimatedHer
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
               ref={meetTeamBtnRef}
-              onClick={() => window.open('https://discord.gg/bQd39uDhnc', '_blank')}
+              onClick={() => {
+                posthog?.capture('discord_button_clicked', {
+                  button_location: 'hero',
+                  button_text: 'JOIN DISCORD COMMUNITY'
+                })
+                window.open('https://discord.gg/bQd39uDhnc', '_blank')
+              }}
               className="px-10 py-5 bg-primary text-primary-foreground text-lg font-mono uppercase tracking-wider hover:bg-primary/90 transition-colors border border-transparent shadow-lg"
             >
               🦆 JOIN DISCORD COMMUNITY

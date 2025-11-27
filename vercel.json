@@ -1,0 +1,13 @@
+{
+  "git": {
+    "deploymentEnabled": {
+      "main": true
+    }
+  },
+  "build": {
+    "env": {
+      "ENABLE_GIT_SUBMODULES": "true"
+    }
+  },
+  "installCommand": "git submodule update --init --recursive && npm install"
+}

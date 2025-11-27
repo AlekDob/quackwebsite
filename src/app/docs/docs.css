@@ -1,0 +1,428 @@
+/* Docs Layout */
+.docs-layout {
+  display: flex;
+  min-height: 100vh;
+  background: hsl(220, 13%, 9%);
+  color: hsl(0, 0%, 95%);
+}
+
+/* Sidebar */
+.docs-sidebar {
+  position: sticky;
+  top: 0;
+  width: 280px;
+  height: 100vh;
+  overflow-y: auto;
+  border-right: 1px solid hsl(220, 13%, 20%);
+  background: hsl(220, 13%, 11%);
+  backdrop-filter: blur(8px);
+}
+
+.docs-sidebar-header {
+  padding: 2rem 1.5rem 1rem;
+  border-bottom: 1px solid hsl(220, 13%, 20%);
+}
+
+.docs-sidebar-header h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: hsl(16, 100%, 60%);
+  margin: 0;
+}
+
+/* Navigation */
+.docs-nav {
+  padding: 1rem 0;
+}
+
+.docs-nav-section {
+  margin-bottom: 0.5rem;
+}
+
+.docs-nav-section-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.625rem 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-align: left;
+  color: hsl(0, 0%, 80%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.docs-nav-section-title:hover {
+  background: hsl(220, 13%, 15%);
+  color: hsl(16, 100%, 60%);
+}
+
+.docs-nav-section-title .chevron {
+  transition: transform 0.2s;
+}
+
+.docs-nav-section-title .chevron.expanded {
+  transform: rotate(180deg);
+}
+
+.docs-nav-pages {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.docs-nav-page-link {
+  display: block;
+  padding: 0.5rem 1.5rem 0.5rem 2.5rem;
+  font-size: 0.875rem;
+  color: hsl(0, 0%, 70%);
+  text-decoration: none;
+  transition: all 0.2s;
+  border-left: 2px solid transparent;
+}
+
+.docs-nav-page-link:hover {
+  color: hsl(16, 100%, 60%);
+  background: hsl(220, 13%, 13%);
+}
+
+.docs-nav-page-link.active {
+  color: hsl(16, 100%, 60%);
+  background: hsl(220, 13%, 15%);
+  border-left-color: hsl(16, 100%, 60%);
+  font-weight: 500;
+}
+
+/* Main Content Area */
+.docs-main {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.docs-content-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+/* Typography */
+.docs-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 2rem;
+  color: hsl(0, 0%, 95%);
+  background: linear-gradient(135deg, hsl(16, 100%, 60%), hsl(16, 100%, 70%));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.docs-content {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: hsl(0, 0%, 85%);
+}
+
+.docs-h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 3rem 0 1.5rem;
+  color: hsl(0, 0%, 95%);
+}
+
+.docs-h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.3;
+  margin: 2.5rem 0 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid hsl(220, 13%, 20%);
+  color: hsl(0, 0%, 90%);
+}
+
+.docs-h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.4;
+  margin: 2rem 0 0.75rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid hsl(220, 13%, 15%);
+  color: hsl(0, 0%, 85%);
+}
+
+.docs-h2 + .docs-h3 {
+  margin-top: 1.25rem;
+  padding-top: 0;
+  border-top: none;
+}
+
+.docs-p {
+  margin: 1rem 0;
+  color: hsl(0, 0%, 80%);
+}
+
+/* Links */
+.docs-link {
+  color: hsl(16, 100%, 60%);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+
+.docs-link:hover {
+  border-bottom-color: hsl(16, 100%, 60%);
+}
+
+.docs-link-external {
+  color: hsl(16, 100%, 60%);
+  text-decoration: none;
+  border-bottom: 1px dashed hsl(16, 100%, 60%);
+}
+
+.docs-link-external:hover {
+  border-bottom-style: solid;
+}
+
+/* Code */
+.docs-inline-code {
+  padding: 0.2em 0.4em;
+  font-size: 0.875em;
+  font-family: 'Fira Code', 'Monaco', 'Courier New', monospace;
+  background: hsl(220, 13%, 15%);
+  color: hsl(16, 100%, 65%);
+  border-radius: 0.25rem;
+  border: 1px solid hsl(220, 13%, 20%);
+}
+
+.docs-code-block {
+  position: relative;
+  margin: 1.5rem 0;
+  background: hsl(220, 13%, 11%);
+  border: 1px solid hsl(220, 13%, 20%);
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.docs-code-language {
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: hsl(0, 0%, 60%);
+  background: hsl(220, 13%, 13%);
+  border-bottom: 1px solid hsl(220, 13%, 20%);
+}
+
+.docs-code-block pre {
+  margin: 0;
+  padding: 1.25rem;
+  overflow-x: auto;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  font-family: 'Fira Code', 'Monaco', 'Courier New', monospace;
+}
+
+.docs-code-block code {
+  color: hsl(0, 0%, 90%);
+  background: transparent;
+}
+
+/* Lists */
+.docs-ul,
+.docs-ol {
+  margin: 1rem 0;
+  padding-left: 2rem;
+  color: hsl(0, 0%, 80%);
+}
+
+.docs-li {
+  margin: 0.5rem 0;
+  line-height: 1.7;
+}
+
+.docs-li::marker {
+  color: hsl(16, 100%, 60%);
+}
+
+/* Tables */
+.docs-table-wrapper {
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  border: 1px solid hsl(220, 13%, 20%);
+  border-radius: 0.5rem;
+}
+
+.docs-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.docs-table th {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: hsl(0, 0%, 90%);
+  background: hsl(220, 13%, 13%);
+  border-bottom: 2px solid hsl(220, 13%, 20%);
+}
+
+.docs-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid hsl(220, 13%, 20%);
+  color: hsl(0, 0%, 80%);
+}
+
+.docs-table tr:last-child td {
+  border-bottom: none;
+}
+
+.docs-table tr:hover {
+  background: hsl(220, 13%, 12%);
+}
+
+/* Blockquote */
+.docs-blockquote {
+  margin: 1.5rem 0;
+  padding: 1rem 1.5rem;
+  border-left: 3px solid hsl(16, 100%, 60%);
+  background: hsl(220, 13%, 12%);
+  border-radius: 0 0.375rem 0.375rem 0;
+  font-style: italic;
+  color: hsl(0, 0%, 75%);
+}
+
+/* Horizontal Rule */
+.docs-hr {
+  margin: 3rem 0;
+  border: none;
+  border-top: 1px solid hsl(220, 13%, 20%);
+  opacity: 0.5;
+}
+
+/* Images */
+.docs-image-wrapper {
+  display: block;
+  margin: 2rem 0;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  border: 1px solid hsl(220, 13%, 20%);
+}
+
+.docs-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Navigation Buttons */
+.docs-navigation {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid hsl(220, 13%, 20%);
+}
+
+.docs-nav-button {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem;
+  background: hsl(220, 13%, 11%);
+  border: 1px solid hsl(220, 13%, 20%);
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.docs-nav-button:hover {
+  background: hsl(220, 13%, 13%);
+  border-color: hsl(16, 100%, 60%);
+  transform: translateY(-2px);
+}
+
+.docs-nav-button.docs-nav-prev {
+  align-items: flex-start;
+}
+
+.docs-nav-button.docs-nav-next {
+  align-items: flex-end;
+  text-align: right;
+}
+
+.docs-nav-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: hsl(0, 0%, 60%);
+  margin-bottom: 0.5rem;
+}
+
+.docs-nav-title {
+  font-size: 1rem;
+  font-weight: 500;
+  color: hsl(16, 100%, 60%);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .docs-layout {
+    flex-direction: column;
+  }
+
+  .docs-sidebar {
+    position: static;
+    width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid hsl(220, 13%, 20%);
+  }
+
+  .docs-content-wrapper {
+    padding: 2rem 1.5rem;
+  }
+
+  .docs-title {
+    font-size: 2rem;
+  }
+
+  .docs-navigation {
+    flex-direction: column;
+  }
+
+  .docs-nav-button {
+    align-items: flex-start !important;
+    text-align: left !important;
+  }
+}
+
+/* Scrollbar styling */
+.docs-sidebar::-webkit-scrollbar,
+.docs-main::-webkit-scrollbar {
+  width: 8px;
+}
+
+.docs-sidebar::-webkit-scrollbar-track,
+.docs-main::-webkit-scrollbar-track {
+  background: hsl(220, 13%, 9%);
+}
+
+.docs-sidebar::-webkit-scrollbar-thumb,
+.docs-main::-webkit-scrollbar-thumb {
+  background: hsl(220, 13%, 20%);
+  border-radius: 4px;
+}
+
+.docs-sidebar::-webkit-scrollbar-thumb:hover,
+.docs-main::-webkit-scrollbar-thumb:hover {
+  background: hsl(220, 13%, 25%);
+}

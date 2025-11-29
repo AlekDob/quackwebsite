@@ -7,6 +7,7 @@ import { AnimatedSection } from '@/components/AnimatedSection'
 import { AnimatedCard } from '@/components/AnimatedCard'
 import { WaitlistForm } from '@/components/WaitlistForm'
 import { AppShowcase } from '@/components/AppShowcase'
+import { FeaturesShowcase } from '@/components/FeaturesShowcase'
 
 export default function Home() {
   const [selectedAgent, setSelectedAgent] = useState<any>(null)
@@ -227,6 +228,9 @@ export default function Home() {
           </AnimatedSection>
         </div>
       </section>
+
+      {/* Features Showcase - Video demos */}
+      <FeaturesShowcase />
 
       {/* Agent Showcase Section - Quack developer agent */}
       <AppShowcase

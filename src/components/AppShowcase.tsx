@@ -16,7 +16,7 @@ export function AppShowcase({
   title = 'Quack in Action',
   subtitle = 'Meet Your New AI Coding Team',
   description = 'A team of specialized AI ducks ready to help you code, manage projects, and ship faster.',
-  badgeText = '🦆 Beta'
+  badgeText = 'Beta'
 }: AppShowcaseProps = {}) {
   const containerRef = useRef<HTMLDivElement>(null)
   const imageRef = useRef<HTMLDivElement>(null)

@@ -8,6 +8,23 @@ import { AnimatedCard } from '@/components/AnimatedCard'
 import { WaitlistForm } from '@/components/WaitlistForm'
 import { AppShowcase } from '@/components/AppShowcase'
 import { FeaturesShowcase } from '@/components/FeaturesShowcase'
+import {
+  IconX,
+  IconCheck,
+  IconGrid,
+  IconGitBranch,
+  IconTerminal,
+  IconFolder,
+  IconCpu,
+  IconPlug,
+  IconBell,
+  IconPip,
+  IconMessage,
+  IconRocket,
+  IconHeadphones,
+  IconCode,
+  IconLock
+} from '@/components/GlowIcon'
 
 export default function Home() {
   const [selectedAgent, setSelectedAgent] = useState<any>(null)
@@ -79,7 +96,7 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-8 mt-16">
             <AnimatedCard index={0}>
               <div className="bg-card border border-red-500/20 p-8 font-mono">
-                <div className="text-4xl mb-4">❌</div>
+                <div className="mb-4"><IconX size="xl" /></div>
                 <h3 className="text-2xl font-bold mb-4">Waiting for Claude...</h3>
                 <p className="text-muted-foreground">
                   You send a prompt. Claude is thinking. You're sitting there, staring at your screen, waiting.
@@ -90,7 +107,7 @@ export default function Home() {
 
             <AnimatedCard index={1}>
               <div className="bg-card border border-red-500/20 p-8 font-mono">
-                <div className="text-4xl mb-4">❌</div>
+                <div className="mb-4"><IconX size="xl" /></div>
                 <h3 className="text-2xl font-bold mb-4">One Project = Bottleneck</h3>
                 <p className="text-muted-foreground">
                   Claude Code locks you into one project at a time. Need to work on something else?
@@ -101,7 +118,7 @@ export default function Home() {
 
             <AnimatedCard index={2}>
               <div className="bg-card border border-red-500/20 p-8 font-mono">
-                <div className="text-4xl mb-4">❌</div>
+                <div className="mb-4"><IconX size="xl" /></div>
                 <h3 className="text-2xl font-bold mb-4">Terminal-Only Hell</h3>
                 <p className="text-muted-foreground">
                   No visual feedback. No file explorer. No Git UI. Just text scrolling by.
@@ -112,7 +129,7 @@ export default function Home() {
 
             <AnimatedCard index={3}>
               <div className="bg-card border border-red-500/20 p-8 font-mono">
-                <div className="text-4xl mb-4">❌</div>
+                <div className="mb-4"><IconX size="xl" /></div>
                 <h3 className="text-2xl font-bold mb-4">Miss Completed Tasks</h3>
                 <p className="text-muted-foreground">
                   Claude finishes a task in the background. You don't notice. You're still working on something else.
@@ -149,7 +166,7 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-8">
             <AnimatedCard index={0}>
               <div className="bg-card border border-green-500/20 p-8 font-mono">
-                <div className="text-4xl mb-4">✅</div>
+                <div className="mb-4"><IconCheck size="xl" /></div>
                 <h3 className="text-2xl font-bold mb-4">Run 10+ Claude Sessions</h3>
                 <p className="text-muted-foreground">
                   Multiple projects, multiple terminals, multiple AI assistants. All running in parallel.
@@ -160,18 +177,18 @@ export default function Home() {
 
             <AnimatedCard index={1}>
               <div className="bg-card border border-green-500/20 p-8 font-mono">
-                <div className="text-4xl mb-4">✅</div>
+                <div className="mb-4"><IconCheck size="xl" /></div>
                 <h3 className="text-2xl font-bold mb-4">Switch While Claude Processes</h3>
                 <p className="text-muted-foreground">
                   Claude is thinking on Project A? Switch to Project B. Review code. Make changes.
-                  When Claude finishes, you get a notification (and a quack! 🦆).
+                  When Claude finishes, you get a notification and a quack sound.
                 </p>
               </div>
             </AnimatedCard>
 
             <AnimatedCard index={2}>
               <div className="bg-card border border-green-500/20 p-8 font-mono">
-                <div className="text-4xl mb-4">✅</div>
+                <div className="mb-4"><IconCheck size="xl" /></div>
                 <h3 className="text-2xl font-bold mb-4">Visual Everything</h3>
                 <p className="text-muted-foreground">
                   File explorer. Git panel with diffs. Preview system. Real-time AI streaming.
@@ -182,7 +199,7 @@ export default function Home() {
 
             <AnimatedCard index={3}>
               <div className="bg-card border border-green-500/20 p-8 font-mono">
-                <div className="text-4xl mb-4">✅</div>
+                <div className="mb-4"><IconCheck size="xl" /></div>
                 <h3 className="text-2xl font-bold mb-4">Smart Notifications</h3>
                 <p className="text-muted-foreground">
                   Desktop notifications when Claude finishes. Status indicators (BUSY/READY).
@@ -220,7 +237,6 @@ export default function Home() {
               </div>
               <div className="mt-6 text-center">
                 <div className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-4 py-2 rounded">
-                  <span>🦆</span>
                   <span className="font-bold">Result: 3x more work done in the same time</span>
                 </div>
               </div>
@@ -265,7 +281,7 @@ export default function Home() {
             {/* Feature 1: Multi-Project Workspace */}
             <AnimatedCard index={0} staggerDelay={0.15}>
               <div className="bg-card border border-border p-8">
-              <div className="text-5xl mb-4">🎯</div>
+              <div className="mb-4"><IconGrid size="xl" /></div>
               <h3 className="text-2xl font-bold mb-4 font-mono">Multi-Project Workspace</h3>
               <p className="text-muted-foreground mb-6">
                 Run multiple Claude Code sessions in parallel. Each project in its own terminal with independent AI assistant.
@@ -291,7 +307,7 @@ export default function Home() {
             {/* Feature 2: Visual Git Integration */}
             <AnimatedCard index={1} staggerDelay={0.15}>
               <div className="bg-card border border-border p-8">
-                <div className="text-5xl mb-4">🔀</div>
+                <div className="mb-4"><IconGitBranch size="xl" /></div>
                 <h3 className="text-2xl font-bold mb-4 font-mono">Visual Git Integration</h3>
                 <p className="text-muted-foreground mb-6">
                   See your changes visually. Side-by-side diff viewer, staging area, commit UI, and timeline.
@@ -317,7 +333,7 @@ export default function Home() {
             {/* Feature 3: Smart Terminal Management */}
             <AnimatedCard index={2} staggerDelay={0.15}>
               <div className="bg-card border border-border p-8">
-                <div className="text-5xl mb-4">💻</div>
+                <div className="mb-4"><IconTerminal size="xl" /></div>
                 <h3 className="text-2xl font-bold mb-4 font-mono">Smart Terminal Management</h3>
                 <p className="text-muted-foreground mb-6">
                   True PTY terminals with intelligent state detection. Know when commands finish with BUSY/READY indicators
@@ -343,7 +359,7 @@ export default function Home() {
             {/* Feature 4: File Explorer & Preview */}
             <AnimatedCard index={3} staggerDelay={0.15}>
               <div className="bg-card border border-border p-8">
-                <div className="text-5xl mb-4">📁</div>
+                <div className="mb-4"><IconFolder size="xl" /></div>
                 <h3 className="text-2xl font-bold mb-4 font-mono">File Explorer & Preview</h3>
                 <p className="text-muted-foreground mb-6">
                   Navigate your project visually. File explorer synced with terminal CWD.
@@ -369,7 +385,7 @@ export default function Home() {
             {/* Feature 5: Real-time AI Assistant */}
             <AnimatedCard index={4} staggerDelay={0.15}>
               <div className="bg-card border border-border p-8">
-                <div className="text-5xl mb-4">🤖</div>
+                <div className="mb-4"><IconCpu size="xl" /></div>
                 <h3 className="text-2xl font-bold mb-4 font-mono">Real-time AI Assistant</h3>
                 <p className="text-muted-foreground mb-6">
                   Built on Claude Agent SDK. Real-time streaming messages, visual tool widgets,
@@ -395,7 +411,7 @@ export default function Home() {
             {/* Feature 6: HTTP Hooks Integration */}
             <AnimatedCard index={5} staggerDelay={0.15}>
               <div className="bg-card border border-border p-8">
-                <div className="text-5xl mb-4">🔌</div>
+                <div className="mb-4"><IconPlug size="xl" /></div>
                 <h3 className="text-2xl font-bold mb-4 font-mono">HTTP Hooks Integration</h3>
                 <p className="text-muted-foreground mb-6">
                   Local HTTP endpoint for external tool integration. Let Claude Code, Factory.ai,
@@ -421,7 +437,7 @@ export default function Home() {
             {/* Feature 7: Telegram Notifications */}
             <AnimatedCard index={6} staggerDelay={0.15}>
               <div className="bg-card border border-border p-8">
-                <div className="text-5xl mb-4">📱</div>
+                <div className="mb-4"><IconBell size="xl" /></div>
                 <h3 className="text-2xl font-bold mb-4 font-mono">Telegram Notifications</h3>
                 <p className="text-muted-foreground mb-6">
                   Get notified on your mobile when Claude finishes tasks. Stay in the loop
@@ -447,7 +463,7 @@ export default function Home() {
             {/* Feature 8: Picture-in-Picture Mode */}
             <AnimatedCard index={7} staggerDelay={0.15}>
               <div className="bg-card border border-border p-8">
-                <div className="text-5xl mb-4">🎬</div>
+                <div className="mb-4"><IconPip size="xl" /></div>
                 <h3 className="text-2xl font-bold mb-4 font-mono">Picture-in-Picture Mode</h3>
                 <p className="text-muted-foreground mb-6">
                   Keep Quack visible while working in other apps. PiP mode lets you monitor
@@ -502,7 +518,7 @@ export default function Home() {
               <WaitlistForm
                 source="cta_bottom"
                 placeholder="your@email.com"
-                buttonText="🦆 Join Waitlist"
+                buttonText="Join Waitlist"
               />
             </div>
 
@@ -520,7 +536,7 @@ export default function Home() {
           {/* Creator info */}
           <AnimatedSection delay={0.1}>
             <div className="mb-12 text-center">
-              <p className="text-muted-foreground font-mono mb-2">Built with ❤️ by</p>
+              <p className="text-muted-foreground font-mono mb-2">Built with love by</p>
               <a
                 href="https://alekdob.com"
                 target="_blank"
@@ -570,31 +586,31 @@ export default function Home() {
               <h3 className="text-2xl font-bold mb-8 font-mono">What You'll Get in Discord</h3>
               <div className="grid md:grid-cols-2 gap-6 text-left max-w-3xl mx-auto">
                 <div className="flex items-start gap-3">
-                  <span className="text-primary text-2xl">💬</span>
+                  <IconMessage color="primary" size="lg" />
                   <div>
                     <div className="font-bold font-mono">Early Access Download</div>
                     <div className="text-sm text-muted-foreground">Be the first to try Quack beta</div>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <span className="text-primary text-2xl">🚀</span>
+                  <IconRocket color="primary" size="lg" />
                   <div>
                     <div className="font-bold font-mono">Feature Requests</div>
                     <div className="text-sm text-muted-foreground">Shape the future of Quack</div>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <span className="text-primary text-2xl">🐛</span>
+                  <IconHeadphones color="primary" size="lg" />
                   <div>
                     <div className="font-bold font-mono">Direct Support</div>
                     <div className="text-sm text-muted-foreground">Get help from the dev team</div>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <span className="text-primary text-2xl">🦆</span>
+                  <IconMessage color="primary" size="lg" />
                   <div>
-                    <div className="font-bold font-mono">Duck Memes</div>
-                    <div className="text-sm text-muted-foreground">We have the best duck memes</div>
+                    <div className="font-bold font-mono">Community</div>
+                    <div className="text-sm text-muted-foreground">Connect with other developers</div>
                   </div>
                 </div>
               </div>
@@ -605,15 +621,15 @@ export default function Home() {
           <div className="mt-16 pt-8 border-t border-border">
             <div className="flex flex-col sm:flex-row justify-center items-center gap-8 text-sm text-muted-foreground font-mono">
               <div className="flex items-center gap-2">
-                <span>💻</span>
+                <IconCode color="muted" size="sm" glow={false} />
                 <span>Built with Tauri + React</span>
               </div>
               <div className="flex items-center gap-2">
-                <span>🤖</span>
+                <IconCpu color="muted" size="sm" glow={false} />
                 <span>Powered by Claude Agent SDK</span>
               </div>
               <div className="flex items-center gap-2">
-                <span>🔓</span>
+                <IconLock color="muted" size="sm" glow={false} />
                 <span>MIT Licensed</span>
               </div>
             </div>
